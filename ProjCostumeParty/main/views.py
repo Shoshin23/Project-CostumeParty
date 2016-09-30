@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from .models import Post
 
 # Create your views here.
-def index(request):
-    return render(request,'main/map.html')
+def load_map(request):
+    posts = Post.all_posts.all()
+    return render(request,'main/map.html',{'posts':posts})
