@@ -1,0 +1,8 @@
+{% extends "main/home.html" %}
+{% block content %}
+<form method="POST" class="form" enctype="multipart/form-data">
+  {{ form.as_p }}
+  {% csrf_token %}
+<input type="submit" value="Add post!">
+</form>
+{% endblock %}
