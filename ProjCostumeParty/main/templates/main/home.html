@@ -37,28 +37,6 @@
     <!-- have the map displayed here. Full page! -->
   {% block content %}
   {% endblock %}
-
-  <div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-<div class="modal-content">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h4 class="modal-title">Add a costume!</h4>
-  </div>
-  <div class="modal-body">
-    <form method="POST" class="form" enctype="multipart/form-data">
-      {{ form.as_p }}
-      {% csrf_token %}
-    <input type="submit" value="Add post!">
-    </form>
-
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-  </div>
-</div>
-</div>
 </div>
 </body>
 </html>

@@ -13,33 +13,17 @@
          center: {lat: -34.397, lng: 150.644},
          zoom: 12
        });
-//        function someFunction(addresses, callback) {
-//     var coords = [];
-//     for(var i = 0; i < addresses.length; i++) {
-//         currAddress = addresses[i];
-//         var geocoder = new google.maps.Geocoder();
-//         if (geocoder) {
-//             geocoder.geocode({'address':currAddress}, function (results, status) {
-//                 if (status == google.maps.GeocoderStatus.OK) {
-//                     coords.push(results[0].geometry.location);
-//                     if(coords.length == addresses.length) {
-//                         if( typeof callback == 'function' ) {
-//                             callback(coords);
-//                         }
-//                     }
-//                 }
-//                 else {
-//                     throw('No results found: ' + status);
-//                 }
-//             });
-//         }
-//      }
-//   }
-//
-//   var addresses = [{% for post in posts %} '{{ post.location}}', {% endfor %}]
-//   someFunction(addresses, function(coords) {
-//     console.log(coords)
-// });
+
+       var infoWindowContent = [
+         "<div class='form-group'>",
+         "{{ form.as_p|escapejs }}",
+         "</div>"
+       ].join(" ")
+
+      var infoWindow = new google.maps.InfoWindow({
+         size:new google.maps.Size(150,50)
+       });
+
 
 var getLatLng = function(addresses, callback) {
             var coords = [];
@@ -59,6 +43,22 @@ var getLatLng = function(addresses, callback) {
                             callback(coords);
                     }
                 });
+            });
+        }
+
+    google.maps.event.addListener(map, 'click', function(event) {
+           placeMarker(event.latLng);
+        });
+
+
+        function placeMarker(location) {
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+            google.maps.event.addListener(marker,'click',function(event) {
+              infoWindow.setContent(infoWindowContent)
+              infoWindow.open(map,marker)
             });
         }
 
