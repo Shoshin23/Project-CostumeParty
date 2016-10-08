@@ -65,17 +65,29 @@ var getLatLng = function(addresses, callback) {
         }
 
 var allAddresses = [{% for post in posts %} '{{ post.location}}', {% endfor %}]
+var allContent = [{% for post in posts %} '{{ post.images}}', {% endfor %}]
         getLatLng(allAddresses, function (results) {
           var marker, i;
           for (i = 0; i < results.length; i++) {
+            contentString = allContent[i]
             marker = new google.maps.Marker({
             position: new google.maps.LatLng(results[i][0],results[i][1]),
             map: map,
             icon: '/static/Pin.png'
           });
+          google.maps.event.addListener(marker, 'click', getInfoCallback(map, contentString));
+
 }
+
         });
 
+        function getInfoCallback(map, content) {
+            var infowindow = new google.maps.InfoWindow({content: content});
+            return function() {
+                    infowindow.setContent(content);
+                    infowindow.open(map, this);
+                };
+        }
 
        // Try HTML5 geolocation.
        if (navigator.geolocation) {
