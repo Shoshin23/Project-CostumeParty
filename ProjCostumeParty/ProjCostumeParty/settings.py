@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +122,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_ROOT = '/Users/karthikkannan/Project-CostumeParty/ProjCostumeParty/uploads'
 MEDIA_URL = '/uploads/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
