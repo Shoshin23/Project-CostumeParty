@@ -65,11 +65,14 @@ var getLatLng = function(addresses, callback) {
         }
 
 var allAddresses = [{% for post in posts %} '{{ post.location}}', {% endfor %}]
-var allContent = [{% for post in posts %} '{{ post.images}}', {% endfor %}]
+var allImages = [{% for post in posts %} '{{ post.images}}', {% endfor %}]
+var allTitles = [{% for post in posts %} '{{ post.title }}', {% endfor %}]
+var allDescrptions = [{% for post in posts %} '{{ post.description }}', {% endfor %}]
+
         getLatLng(allAddresses, function (results) {
           var marker, i;
           for (i = 0; i < results.length; i++) {
-            contentString = allContent[i]
+            contentString = '<div class="row">'+ '<img src="/'+ allImages[i] + '" alt="Image description">'
             marker = new google.maps.Marker({
             position: new google.maps.LatLng(results[i][0],results[i][1]),
             map: map,
