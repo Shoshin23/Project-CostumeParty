@@ -14,42 +14,46 @@
          zoom: 12
        });
 
+      //  var infoWindowContent = [
+      //    "<div class='form-group'>",
+      //    "<form method='POST' class='form' enctype='multipart/form-data'>",
+      //    "{% csrf_token %}",
+      //    "{{ form.as_p|escapejs }}",
+      //    "<input type='submit' value='Add costume!'/>",
+      //    "</form>",
+      //    "</div>",
+      //  ].join(" ")
+
+
        var infoWindowContent = [
-         "<div class='form-group'>",
+         "<div class='form-horizontal'>",
          "<form method='POST' class='form' enctype='multipart/form-data'>",
          "{% csrf_token %}",
-         "{{ form.as_p|escapejs }}",
+         "<fieldset>",
+         "<legend>Add a costume!</legend>",
+         "<div class='form-group'>",
+         "<label class='col-md-4 control-label'>Upload an image!</label>",
+         "  <div class='col-md-4'>",
+         "{{ form.images|escapejs }}",
+         "</div>",
+         "</div>",
+         "<div class='form-group'>",
+         "<label class='col-md-4 control-label'>A brief description of your costume.</label>",
+         "<div class='col-md-4'>",
+         "{{ form.description|escapejs }}",
+         "</div>",
+         "</div>",
+         "<div class='form-group'>",
+         "<label class='col-md-4 control-label'>A valid email ID.</label>",
+         "<div class='col-md-4'>",
+         "{{ form.title|escapejs}}",
+         "</div>",
+         "</div>",
+         "{{ form.location|escapejs}}",
          "<input type='submit' value='Add costume!'/>",
          "</form>",
-         "</div>",
+         "</div>"
        ].join(" ")
-
-
-      //  var infoWindowContent = [
-      //    "<div class='form-horizontal'>",
-      //    "<fieldset>",
-      //    "<legend>Add a costume!</legend>",
-      //    "<div class='form-group'>",
-      //    "<label class='col-md-4 control-label'>Upload an image!</label>",
-      //    "  <div class='col-md-4'>",
-      //    "{{ form.images|escapejs }}",
-      //    "</div>",
-      //    "</div>",
-      //    "<div class='form-group'>",
-      //    "<label class='col-md-4 control-label'>A brief description of your costume.</label>",
-      //    "<div class='col-md-4'>",
-      //    "{{ form.description|escapejs }}",
-      //    "</div>",
-      //    "</div>",
-      //    "<div class='form-group'>",
-      //    "<label class='col-md-4 control-label'>A valid email ID.</label>",
-      //    "<div class='col-md-4'>",
-      //    "{{ form.title|escapejs}}",
-      //    "</div>",
-      //    "</div>",
-      //    "{{ form.location|escapejs}}",
-      //    "</div>"
-      //  ].join(" ")
 
       var infoWindow = new google.maps.InfoWindow({
          size:new google.maps.Size(150,50)
