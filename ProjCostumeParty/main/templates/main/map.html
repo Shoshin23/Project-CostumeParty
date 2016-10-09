@@ -7,13 +7,13 @@
      // failed.", it means you probably did not give permission for the browser to
      // locate you.
     //  var address='San Diego, CA'
+
      function initMap() {
        var geocoder = new google.maps.Geocoder()
        var map = new google.maps.Map(document.getElementById('map'), {
          center: {lat: -34.397, lng: 150.644},
          zoom: 12
        });
-
       //  var infoWindowContent = [
       //    "<div class='form-group'>",
       //    "<form method='POST' class='form' enctype='multipart/form-data'>",
@@ -97,7 +97,15 @@ var getLatLng = function(addresses, callback) {
               infoWindow.setContent(infoWindowContent)
               infoWindow.open(map,marker)
             });
-        }
+            geocoder.geocode({'latLng': location}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    if (results[0]) {
+                      console.log(results[0].formatted_address);
+
+                    }
+                }
+        });
+}
 
 var allAddresses = [{% for post in posts %} '{{ post.location}}', {% endfor %}]
 var allImages = [{% for post in posts %} '{{ post.images}}', {% endfor %}]
