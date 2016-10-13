@@ -9,7 +9,7 @@ class Post(models.Model):
     location = models.CharField(max_length=250,default='Bangalore')
     images = models.ImageField(upload_to='uploads/')
     publish = models.DateTimeField(default=timezone.now)
-    all_posts = models.Manager() #default manager.
+    objects = models.Manager()
 
 class Meta:
     ordering = ('-publish',)

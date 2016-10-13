@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'crispy_forms',
+    'haystack',
 ]
 
 MIDDLEWARE = [
@@ -122,5 +122,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_ROOT = '/Users/karthikkannan/Project-CostumeParty/ProjCostumeParty/uploads'
 MEDIA_URL = '/uploads/'
-
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': 'http://127.0.0.1:9200/',
+        'INDEX_NAME': 'posts',
+    },
+}

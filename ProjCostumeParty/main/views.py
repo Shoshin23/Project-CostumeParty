@@ -11,7 +11,7 @@ def load_map(request):
             form.save()
             return HttpResponseRedirect('/')
     elif request.method == 'GET':
-        posts = Post.all_posts.all()
+        posts = Post.objects.all()
         form = PostForm()
     return render(request,'main/map.html',{'posts':posts,'form':form})
 
