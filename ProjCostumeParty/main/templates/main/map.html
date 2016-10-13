@@ -129,7 +129,7 @@ var allDescrptions = [{% for post in posts %} '{{ post.description }}', {% endfo
         getLatLng(allAddresses, function (results) {
           var marker, i;
           for (i = 0; i < results.length; i++) {
-            contentString = '<div class="container-fluid">'+'<div class="row">'+'<img class="img-responsive center-block" style="max-width:100px;max-height:100px;" src="/'+allImages[i]+'" alt="Image description"/>'+'<div class="col-sm-12">'+'<p class="text-center">'+allTitles[i]+'</p>'
+            contentString = '<div class="container-fluid">'+'<div class="row">'+'<img class="img-responsive center-block" style="max-width:100px;max-height:100px;" src="/uploads/'+allImages[i]+'" alt="Image description"/>'+'<div class="col-sm-12">'+'<p class="text-center">'+allTitles[i]+'</p>'
             +'</div>'+'<div class="col-sm-12">'+'<p class="text-center">'+allDescrptions[i]+'</p>'
             + '</div>'+'<div class="col-sm-12">'+'<p class="text-center">'+allAddresses[i]+'</p>'
             + '</div>'+'</div>'+'</div>'
