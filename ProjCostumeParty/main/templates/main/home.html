@@ -20,20 +20,31 @@
   <meta name="viewport"  content="width=device-width, inital-scale=1.0">
 </head>
 <body>
+<script>
+// Get the textbox value, convert that into a 'string+string+string' and pass it on.
+function getText(){
+  var txt =  document.getElementById("search-text")
+  var newTxt = txt.value.split(/[ ,]+/).join('+')
+  location.href='/search/?q='+newTxt
+}
+</script>
+
+
+
   <div class="container-fluid" style="background: #FF9922">
     <br>
     <div style="margin-top:-6px;"class="row">
     <div class"col-sm-2">
-        <img style="float:left" src="{% static "logo.png" %}" alt="Logo"/>
+        <a href="/"><img style="float:left" src="{% static "logo.png" %}" alt="Logo"/></a>
 
       </div>
 
     <div class="col-sm-8">
-    <input type="text" class="form-control" placeholder="Search based on...">
+    <input id="search-text" type="text" class="form-control" placeholder="Search based on...">
   </div>
     <div class="col-sm-2">
     <div class="btn-group col-md-12" role="group" aria-label="...">
-      <button type="button" class="btn btn-default">Costume</button>
+      <button type="button" onclick="getText()"class="btn btn-default">Costume</button>
       <button type="button" class="btn btn-default">Location</button>
     </div>
     </div>
