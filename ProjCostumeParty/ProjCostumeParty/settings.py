@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'ProjCostumeParty.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd3gk68dd7jl9eu',
+        'USER': 'gvujtfoqmixorg',
+        'PASSWORD': 'SLUYCHZ-Fl4rmMM79lxphS4A4J',
+        'HOST': 'ec2-54-235-246-220.compute-1.amazonaws.com',
+        'PORT':'5432',
     }
 }
 
