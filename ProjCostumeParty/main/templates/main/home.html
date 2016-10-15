@@ -31,9 +31,51 @@ function getText(){
   var newTxt = txt.value.split(/[ ,]+/).join('+')
   location.href='/search/?q='+newTxt
 }
+function GetCookie(name) {
+      var arg=name+"=";
+      var alen=arg.length;
+      var clen=document.cookie.length;
+      var i=0;
+
+      while (i<clen) {
+          var j=i+alen;
+              if (document.cookie.substring(i,j)==arg)
+                  return "here";
+              i=document.cookie.indexOf(" ",i)+1;
+              if (i==0)
+                  break;
+      }
+
+      return null;
+  }
+$(function() {
+    var visit=GetCookie("showModal");
+
+    if (visit==null){
+        $("#myModal").modal('show')
+    }
+    var expire=new Date();
+    expire=new Date(expire.getTime()+7776000000);
+    document.cookie="showModal=here; expires="+expire;
+})
 </script>
 
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"> Hey there! </h4>
+      </div>
+      <div class="modal-body">
+        <h4> Welcome to "CostumeX", a platform for people to trade costumes. Just pick your area and drop in a pin there with your costume
+          and some basic contact information. Also, zoom into areas nearby you to see what costumes are available.</h4>
+      </div>
+    </div>
+  </div>
+</div>
 
   <div class="container-fluid" style="background: #FF9922">
     <br>
