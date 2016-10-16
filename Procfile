@@ -1,1 +1,1 @@
-web: gunicorn ProjCostumeParty.wsgi -b 0.0.0.0:$PORT
+web: gunicorn --pythonpath app app.wsgi
