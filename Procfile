@@ -1,1 +1,1 @@
-web: gunicorn ProjCostumeParty.wsgi --pythonpath ../ProjCostumeParty
+web: gunicorn ProjCostumeParty.wsgi
