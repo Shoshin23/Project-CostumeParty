@@ -77,18 +77,28 @@ WSGI_APPLICATION = 'ProjCostumeParty.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd3gk68dd7jl9eu',
+#         'USER': 'gvujtfoqmixorg',
+#         'PASSWORD': 'SLUYCHZ-Fl4rmMM79lxphS4A4J',
+#         'HOST': 'ec2-54-235-246-220.compute-1.amazonaws.com',
+#         'PORT':'5432',
+#     }
+# }
+# DATABASES['default'] = dj_database_url.config()
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd3gk68dd7jl9eu',
-        'USER': 'gvujtfoqmixorg',
-        'PASSWORD': 'SLUYCHZ-Fl4rmMM79lxphS4A4J',
-        'HOST': 'ec2-54-235-246-220.compute-1.amazonaws.com',
-        'PORT':'5432',
-    }
+  'default': {
+      'ENGINE': 'django.db.backends.postgresql_psycopg2',
+      'NAME': 'mydb',
+      'USER': 'myuser',
+      'PASSWORD': 'password',
+      'HOST': 'localhost',
+      'PORT': '',
+  }
 }
 
-DATABASES['default'] = dj_database_url.config()
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -96,10 +106,10 @@ ALLOWED_HOSTS = ['*']
 
 DEBUG = False
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
+# try:
+#     from .local_settings import *
+# except ImportError:
+#     pass
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -139,6 +149,7 @@ USE_TZ = True
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [..DIRS..]
 MEDIA_ROOT = '/Users/karthikkannan/Project-CostumeParty/ProjCostumeParty/uploads'
 MEDIA_URL = '/uploads/'
 HAYSTACK_CONNECTIONS = {
