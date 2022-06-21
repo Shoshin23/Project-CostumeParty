@@ -7,7 +7,7 @@ django-haystack==2.5.0
 elasticsearch==1.9.0
 gunicorn==19.6.0
 matplotlib==1.5.3
-numpy==1.11.1
+numpy==1.22.0
 pandas==0.18.1
 Pillow==3.3.1
 pyelasticsearch==1.4
